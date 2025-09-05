@@ -1,0 +1,247 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f7fafd;
+  color: #222;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #2d3e50 80%, #4a5a6a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 70px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  animation: fadeInDown 0.7s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.3s;
+}
+
+.navbar-logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navbar-menu li a:hover,
+.navbar-menu li a:focus {
+  color: #b2e0ff;
+}
+
+.navbar-menu li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #b2e0ff;
+  transition: width .3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.navbar-menu li a:hover::after {
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  margin: 30px 0 20px 0;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+#patient-form, .modal-content {
+  background-color: white;
+  border: 1px solid #dbe2ea;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+  padding: 24px;
+  border-radius: 16px;
+  width: 340px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeInUp 0.8s;
+}
+
+label {
+  font-size: 15px;
+  color: #2d3e50;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 8px;
+  border: 1px solid #bfcad6;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: #2d3e50;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background: #4a90e2;
+  transform: translateY(-2px) scale(1.03);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+  animation: fadeInUp 0.8s;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  border: 1px solid #dbe2ea;
+  padding: 10px 8px;
+  text-align: center;
+  font-size: 15px;
+}
+#form-section h2{
+display: flex;
+justify-content: center;
+}
+th {
+  background: #f0f4f8;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d3e50;
+  transition: background 0.2s;
+}
+
+th:hover {
+  background: #e3eaf2;
+}
+
+#search {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #bfcad6;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+#search:focus {
+  border-color: #4a90e2;
+}
+
+#modal.hidden {
+  display: none;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(44,62,80,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s;
+}
+
+.modal-content {
+  padding: 28px;
+  border-radius: 10px;
+  animation: fadeInUp 0.6s;
+}
+
+#list-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+}
+
+#list-wrapper.visible {
+  max-height: 1200px; /* suficiente para a tabela */
+  opacity: 1;
+  transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+}
+
+#toggle-list {
+  margin-left: 16px;
+  padding: 4px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #2d3e50;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#toggle-list:hover {
+  background: #4a90e2;
+}
